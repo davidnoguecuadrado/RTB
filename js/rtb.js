@@ -24,7 +24,6 @@ $(document).ready(function () {
     })
 
     $(".lightbox_comic").click(function () {
-        
         cleanCarusel();
         var clases = this.classList;
         var numberFolder = clases[this.classList.length - 1];
@@ -62,8 +61,8 @@ $(document).ready(function () {
         var number = clases[clases.length - 1];
         document.getElementById('carrouselMain').style.display = 'none';
         document.getElementById('carrouselMain').style.display = 'none';
-        document.getElementById('light' + number).style.display = 'none';
-        document.getElementById('fade' + number).style.display = 'none';
+        document.getElementById('light'+number).style.display = 'none';
+        document.getElementById('fade'+number).style.display = 'none';
 
         document.getElementById('mainMap').style.display = 'block';
         document.getElementById('mainMap').style.display = 'block';
@@ -72,14 +71,15 @@ $(document).ready(function () {
         setNotBlowUpShit();
     })
 
-    $(".boxselect").change(function () {
+    $( ".boxselect" ).change(function() {
         var close = document.querySelector(".closeComic");
         var clases = close.classList;
         var number = clases[clases.length - 1];
-        document.getElementById('light' + number).style.display = 'none';
-        document.getElementById('fade' + number).style.display = 'none';
+        document.getElementById('light'+number).style.display = 'none';
+        document.getElementById('fade'+number).style.display = 'none';
         close.classList.remove(number)
         cleanCarusel();
+        generateCarousel(this.value);
     });
 
 });
@@ -144,7 +144,7 @@ function generateCarousel(number) {
     });
 }
 
-function cleanCarusel() {
+function cleanCarusel(){
     var existingDiv = document.querySelector(".carousel-inner");
     existingDiv.innerHTML = '';
     var existingOl = document.querySelector(".carousel-indicators");
