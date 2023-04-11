@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    setNotBlowUpShit();
     window.document.onkeydown = function (e) {
         if (!e) {
             e = event;
@@ -23,7 +24,8 @@ $(document).ready(function () {
     })
 
     $(".lightbox_comic").click(function () {
-
+        
+        cleanCarusel();
         var clases = this.classList;
         var numberFolder = clases[this.classList.length - 1];
 
@@ -60,24 +62,24 @@ $(document).ready(function () {
         var number = clases[clases.length - 1];
         document.getElementById('carrouselMain').style.display = 'none';
         document.getElementById('carrouselMain').style.display = 'none';
-        document.getElementById('light'+number).style.display = 'none';
-        document.getElementById('fade'+number).style.display = 'none';
+        document.getElementById('light' + number).style.display = 'none';
+        document.getElementById('fade' + number).style.display = 'none';
 
         document.getElementById('mainMap').style.display = 'block';
         document.getElementById('mainMap').style.display = 'block';
         close.classList.remove(number);
         cleanCarusel();
+        setNotBlowUpShit();
     })
 
-    $( ".boxselect" ).change(function() {
+    $(".boxselect").change(function () {
         var close = document.querySelector(".closeComic");
         var clases = close.classList;
         var number = clases[clases.length - 1];
-        document.getElementById('light'+number).style.display = 'none';
-        document.getElementById('fade'+number).style.display = 'none';
+        document.getElementById('light' + number).style.display = 'none';
+        document.getElementById('fade' + number).style.display = 'none';
         close.classList.remove(number)
         cleanCarusel();
-        generateCarousel(this.value);
     });
 
 });
@@ -142,7 +144,7 @@ function generateCarousel(number) {
     });
 }
 
-function cleanCarusel(){
+function cleanCarusel() {
     var existingDiv = document.querySelector(".carousel-inner");
     existingDiv.innerHTML = '';
     var existingOl = document.querySelector(".carousel-indicators");
@@ -160,3 +162,32 @@ function setOption(selectElement, value) {
     return false;
 }
 
+function setNotBlowUpShit(selectElement, value) {
+    var newLi = document.createElement("li");
+
+    // Set the data-target attribute
+    newLi.setAttribute("data-target", "#myCarousel");
+
+    // Set the data-slide-to attribute
+    newLi.setAttribute("data-slide-to", "" + count);
+
+    newLi.classList.add("active");
+
+    existingOl.appendChild(newLi);
+
+    var parentDiv = document.createElement("div");
+    parentDiv.classList.add("item", "active");
+    // Create the image element
+    var imgElement = document.createElement("img");
+    var image = folderUrl + "/" + file
+    imgElement.setAttribute("src", "");
+    imgElement.setAttribute("alt", "");
+
+    // Append the image element to the parent div element
+    parentDiv.appendChild(imgElement);
+
+    // Append the parent div element to the document
+    var existingDiv = document.querySelector(".carousel-inner");
+
+    existingDiv.appendChild(parentDiv);
+}
