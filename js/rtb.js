@@ -162,7 +162,7 @@ function setOption(selectElement, value) {
     return false;
 }
 
-function setNotBlowUpShit(selectElement, value) {
+function setNotBlowUpShit() {
     var newLi = document.createElement("li");
 
     // Set the data-target attribute
@@ -172,6 +172,7 @@ function setNotBlowUpShit(selectElement, value) {
     newLi.setAttribute("data-slide-to", "0");
 
     newLi.classList.add("active");
+    var existingOl = document.querySelector(".carousel-indicators");
 
     existingOl.appendChild(newLi);
 
