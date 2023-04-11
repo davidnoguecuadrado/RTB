@@ -65,7 +65,8 @@ $(document).ready(function () {
 
         document.getElementById('mainMap').style.display = 'block';
         document.getElementById('mainMap').style.display = 'block';
-        close.classList.remove(number)
+        close.classList.remove(number);
+        cleanCarusel();
     })
 
     $( ".boxselect" ).change(function() {
@@ -84,7 +85,7 @@ $(document).ready(function () {
 function generateCarousel(number) {
 
     setOption(document.querySelector(".boxselect"), number);
-    
+
     var close = document.querySelector(".closeComic");
     close.classList.add(number);
 
