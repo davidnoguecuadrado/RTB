@@ -169,7 +169,7 @@ function setNotBlowUpShit(selectElement, value) {
     newLi.setAttribute("data-target", "#myCarousel");
 
     // Set the data-slide-to attribute
-    newLi.setAttribute("data-slide-to", "" + count);
+    newLi.setAttribute("data-slide-to", "0");
 
     newLi.classList.add("active");
 
