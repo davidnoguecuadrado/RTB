@@ -9,48 +9,26 @@ $(document).ready(function () {
     }
 
 
-    $(".lightbox_open1").click(function () {
+    $(".lightbox_open").click(function () {
         window.scrollTo(0, 0);
-        document.getElementById('light1').style.display = 'block';
-        document.getElementById('fade1').style.display = 'block';
+        var clases = this.classList;
+        document.getElementById('light' + clases[this.classList.length - 1]).style.display = 'block';
+        document.getElementById('fade' + clases[this.classList.length - 1]).style.display = 'block';
     })
 
-    $(".lightbox_close1").click(function () {
-        document.getElementById('light1').style.display = 'none';
-        document.getElementById('fade1').style.display = 'none';
-    })
-
-    $(".lightbox_open2").click(function () {
-        window.scrollTo(0, 0);
-        document.getElementById('light2').style.display = 'block';
-        document.getElementById('fade2').style.display = 'block';
-    })
-    $(".lightbox_close2").click(function () {
-        document.getElementById('light2').style.display = 'none';
-        document.getElementById('fade2').style.display = 'none';
-    })
-
-    $(".lightbox_open3").click(function () {
-        window.scrollTo(0, 0);
-        document.getElementById('light3').style.display = 'block';
-        document.getElementById('fade3').style.display = 'block';
-    })
-    $(".lightbox_close3").click(function () {
-        document.getElementById('light3').style.display = 'none';
-        document.getElementById('fade3').style.display = 'none';
-    })
-
-    $(".lightbox_open4").click(function () {
-        window.scrollTo(0, 0);
-        document.getElementById('light4').style.display = 'block';
-        document.getElementById('fade4').style.display = 'block';
-    })
-    $(".lightbox_close4").click(function () {
-        document.getElementById('light4').style.display = 'none';
-        document.getElementById('fade4').style.display = 'none';
+    $(".lightbox_close").click(function () {
+        var clases = this.classList;
+        document.getElementById('light' + clases[this.classList.length - 1]).style.display = 'none';
+        document.getElementById('fade' + clases[this.classList.length - 1]).style.display = 'none';
     })
 
     $(".lightbox_comic").click(function () {
+
+        var clases = this.classList;
+        var numberFolder = clases[this.classList.length - 1];
+
+        generateCarousel(numberFolder);
+
         window.scrollTo(0, 0);
         document.getElementById('carrouselMain').style.display = 'block';
         document.getElementById('carrouselMain').style.display = 'block';
@@ -60,14 +38,14 @@ $(document).ready(function () {
         const carouselItems = carousel.querySelectorAll('li');
         const carouselWidth = carouselItems[0].offsetWidth;
         let carouselPosition = 0;
-    
+
         document.querySelector('.carousel-prev').addEventListener('click', () => {
             if (carouselPosition > 0) {
                 carouselPosition -= carouselWidth;
                 carousel.style.transform = `translateX(-${carouselPosition}px)`;
             }
         });
-    
+
         document.querySelector('.carousel-next').addEventListener('click', () => {
             if (carouselPosition < (carouselItems.length - 1) * carouselWidth) {
                 carouselPosition += carouselWidth;
@@ -77,18 +55,107 @@ $(document).ready(function () {
     })
 
     $(".closeComic").click(function () {
+        var close = document.querySelector(".closeComic");
+        var clases = close.classList;
+        var number = clases[clases.length - 1];
         document.getElementById('carrouselMain').style.display = 'none';
         document.getElementById('carrouselMain').style.display = 'none';
-        document.getElementById('light1').style.display = 'none';
-        document.getElementById('fade1').style.display = 'none';
-        
-        document.getElementById('mainMap').style.display = 'block';
-        document.getElementById('mainMap').style.display = 'block';
-    })
-    
+        document.getElementById('light'+number).style.display = 'none';
+        document.getElementById('fade'+number).style.display = 'none';
 
-    
+        document.getElementById('mainMap').style.display = 'block';
+        document.getElementById('mainMap').style.display = 'block';
+        close.classList.remove(number)
+    })
+
+    $( ".boxselect" ).change(function() {
+        var close = document.querySelector(".closeComic");
+        var clases = close.classList;
+        var number = clases[clases.length - 1];
+        document.getElementById('light'+number).style.display = 'none';
+        document.getElementById('fade'+number).style.display = 'none';
+        close.classList.remove(number)
+        cleanCarusel();
+        generateCarousel(this.value);
+    });
+
 });
 
-   
+function generateCarousel(number) {
+
+    setOption(document.querySelector(".boxselect"), number);
+    
+    var close = document.querySelector(".closeComic");
+    close.classList.add(number);
+
+    var folderUrl = "img/" + number;
+    console.log(folderUrl);
+
+    var diccionario = number;
+    console.log(diccionario);
+
+    // Split the response into an array of filenames
+    var files = data[diccionario];
+    console.log(files);
+    var count = 0;
+    files.forEach(function (file) {
+        var parentDiv = document.createElement("div");
+        if (count == 0) {
+            parentDiv.classList.add("item", "active");
+        }
+        else {
+            parentDiv.classList.add("item");
+        }
+        // Create the image element
+        var imgElement = document.createElement("img");
+        var image = folderUrl + "/" + file
+        imgElement.setAttribute("src", image);
+        imgElement.setAttribute("alt", "");
+
+        // Append the image element to the parent div element
+        parentDiv.appendChild(imgElement);
+
+        // Append the parent div element to the document
+        var existingDiv = document.querySelector(".carousel-inner");
+
+        existingDiv.appendChild(parentDiv);
+
+        // Create a new li element
+
+        var existingOl = document.querySelector(".carousel-indicators");
+
+        var newLi = document.createElement("li");
+
+        // Set the data-target attribute
+        newLi.setAttribute("data-target", "#myCarousel");
+
+        // Set the data-slide-to attribute
+        newLi.setAttribute("data-slide-to", "" + count);
+
+        if (count == 0) {
+            newLi.classList.add("active");
+        }
+        existingOl.appendChild(newLi);
+
+        count++;
+    });
+}
+
+function cleanCarusel(){
+    var existingDiv = document.querySelector(".carousel-inner");
+    existingDiv.innerHTML = '';
+    var existingOl = document.querySelector(".carousel-indicators");
+    existingOl.innerHTML = '';
+}
+
+function setOption(selectElement, value) {
+    var options = selectElement.options;
+    for (var i = 0, optionsLength = options.length; i < optionsLength; i++) {
+        if (options[i].value == value) {
+            selectElement.selectedIndex = i;
+            return true;
+        }
+    }
+    return false;
+}
 
