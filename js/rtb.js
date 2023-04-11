@@ -180,7 +180,6 @@ function setNotBlowUpShit() {
     parentDiv.classList.add("item", "active");
     // Create the image element
     var imgElement = document.createElement("img");
-    var image = folderUrl + "/" + file
     imgElement.setAttribute("src", "");
     imgElement.setAttribute("alt", "");
 
