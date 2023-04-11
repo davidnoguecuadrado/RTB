@@ -3,38 +3,39 @@
 
 <head>
     <!-- Compiled and minified Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-        <!-- Minified JS library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <!-- Compiled and minified Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="js/imagesrouts/images.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Minified JS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- Compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <link rel="stylesheet" href="css/rtb.css">
     <script src="js/rtb.js"></script>
-    
+
 </head>
 
 <body>
     <div id="carrouselMain">
 
         <a class="boxclose closeComic" id="boxclose"></a>
-        
+
+        <select class="form-select boxselect" id="boxselect" aria-label="Default select example">
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+
         <div id="myCarousel" class="carousel slide" interval="false" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-            </ol>    
+
+            </ol>
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <div class="item active">
-                    <img src="img/gato1.jpg" alt="">
-                </div>
-                <div class="item">
-                    <img src="img/gato2.jpg" alt="">
-                </div>
+
             </div>
-        
             <!-- Controls -->
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -49,39 +50,43 @@
 
     <div id="mainMap">
         <div id="light1">
-            <a class="boxclose lightbox_close1" id="boxclose"></a>
-            <a class="boxcomic lightbox_comic" id="boxcomic"></a>
+            <a class="boxclose lightbox_close 1" id="boxclose"></a>
+            <a class="boxcomic lightbox_comic 1" id="boxcomic"></a>
 
             <iframe width="560" height="315" src="https://www.youtube.com/embed/GIjyCVsTn2s"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
         </div>
-        <div id="fade1" class="lightbox_close1"></div>
+        <div id="fade1" class="lightbox_close 1"></div>
 
         <div id="light2">
-            <a class="boxclose lightbox_close2" id="boxclose"></a>
+            <a class="boxclose lightbox_close 2" id="boxclose"></a>
+            <a class="boxcomic lightbox_comic 2" id="boxcomic"></a>
+
             <iframe class="yt_player_iframe" width="560" height="315" src="https://www.youtube.com/embed/SJfKHSfH0TU"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
         </div>
-        <div id="fade2" class="lightbox_close2"></div>
+        <div id="fade2" class="lightbox_close 2"></div>
 
         <div id="light3">
-            <a class="boxclose lightbox_close3" id="boxclose"></a>
+            <a class="boxclose lightbox_close 3" id="boxclose"></a>
+            <a class="boxcomic lightbox_comic 3" id="boxcomic"></a>
+
             <iframe width="560" height="315" src="https://www.youtube.com/embed/WGup1Zf6n4U"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
         </div>
-        <div id="fade3" class="lightbox_close3"></div>
+        <div id="fade3" class="lightbox_close 3"></div>
 
         <div id="light4">
-            <a class="boxclose lightbox_close4" id="boxclose"></a>
+            <a class="boxclose lightbox_close 4" id="boxclose"></a>
             <img src="img/soon.jpg" alt="Girl in a jacket">
         </div>
-        <div id="fade4" class="lightbox_close4"></div>
+        <div id="fade4" class="lightbox_close 4"></div>
 
         <div style="text-align:center;">
             <?xml version="1.0" encoding="UTF-8"?>
@@ -127,16 +132,16 @@
                         style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;"
                         d="M 0.000644763 -0.000780119 L 0.000644763 -0.000780119 "
                         transform="matrix(1.857917,0,0,1.856021,168.049583,797.130354)" />
-                    <path class="circulo1 lightbox_open1"
+                    <path class="circulo1 lightbox_open 1"
                         style=" stroke:none;fill-rule:nonzero;fill:rgb(81.960784%,69.019608%,0%);fill-opacity:1;"
                         d="M 193.039062 810.898438 C 193.039062 816.304688 188.652344 820.6875 183.238281 820.6875 C 177.828125 820.6875 173.441406 816.304688 173.441406 810.898438 C 173.441406 805.492188 177.828125 801.109375 183.238281 801.109375 C 188.652344 801.109375 193.039062 805.492188 193.039062 810.898438 Z M 193.039062 810.898438 " />
-                    <path class="circulo2 lightbox_open2"
+                    <path class="circulo2 lightbox_open 2"
                         style=" stroke:none;fill-rule:nonzero;fill:rgb(81.960784%,69.019608%,0%);fill-opacity:1;"
                         d="M 114.066406 779.609375 C 114.066406 785.015625 109.679688 789.398438 104.269531 789.398438 C 98.855469 789.398438 94.46875 785.015625 94.46875 779.609375 C 94.46875 774.203125 98.855469 769.820312 104.269531 769.820312 C 109.679688 769.820312 114.066406 774.203125 114.066406 779.609375 Z M 114.066406 779.609375 " />
-                    <path class="circulo3 lightbox_open3"
+                    <path class="circulo3 lightbox_open 3"
                         style=" stroke:none;fill-rule:nonzero;fill:rgb(81.960784%,69.019608%,0%);fill-opacity:1;"
                         d="M 291.734375 773.429688 C 291.734375 778.835938 287.347656 783.21875 281.933594 783.21875 C 276.519531 783.21875 272.132812 778.835938 272.132812 773.429688 C 272.132812 768.023438 276.519531 763.640625 281.933594 763.640625 C 287.347656 763.640625 291.734375 768.023438 291.734375 773.429688 Z M 291.734375 773.429688 " />
-                    <path class="circulo4 lightbox_open4"
+                    <path class="circulo4 lightbox_open 4"
                         style=" stroke:none;fill-rule:nonzero;fill:rgb(81.960784%,69.019608%,0%);fill-opacity:1;"
                         d="M 374.402344 715.527344 C 374.402344 720.933594 370.011719 725.316406 364.601562 725.316406 C 359.1875 725.316406 354.800781 720.933594 354.800781 715.527344 C 354.800781 710.121094 359.1875 705.738281 364.601562 705.738281 C 370.011719 705.738281 374.402344 710.121094 374.402344 715.527344 Z M 374.402344 715.527344 " />
                     <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">

@@ -148,6 +148,32 @@ body {
     display: none;
 }
 
+#boxselect {
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 3px;
+    background: #222222;
+    font-size: 31px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 0px;
+    padding: 11px 3px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    z-index: 1002;
+    opacity: 0.9;
+}
+
+.boxselect:before {
+    content: "X";
+}
+
+#fade:hover~#boxselect {
+    display: none;
+}
+
 #boxcomic {
     cursor: pointer;
     color: #fff;
@@ -160,8 +186,8 @@ body {
     line-height: 0px;
     padding: 11px 3px;
     position: absolute;
-    right: 2px;
-    top: 25px;
+    left: 2px;
+    top: 2px;
     z-index: 1002;
     opacity: 0.9;
 }
